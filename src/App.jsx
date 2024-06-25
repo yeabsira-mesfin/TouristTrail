@@ -1,11 +1,11 @@
 import { useRef, useState, useEffect } from "react";
-
 import Places from "./components/Places.jsx";
 import { AVAILABLE_PLACES } from "./data.js";
 import Modal from "./components/Modal.jsx";
 import DeleteConfirmation from "./components/DeleteConfirmation.jsx";
 import logoImg from "./assets/logo.png";
 import { sortPlacesByDistance } from "./loc.js";
+
 const storedIDs = JSON.parse(localStorage.getItem("selectedPlaces")) || [];
 const storedPlaces = storedIDs.map((id) =>
   AVAILABLE_PLACES.find((place) => place.id === id)
@@ -67,11 +67,11 @@ function App() {
 
   return (
     <>
-      <Modal open = {modalIsOpen}>
-        <DeleteConfirmation
+      <Modal open = {modalIsOpen} onClose = {handleStopRemovePlace}>
+       {modalIsOpen && <DeleteConfirmation
           onCancel={handleStopRemovePlace}
           onConfirm={handleRemovePlace}
-        />
+        />} 
       </Modal>
 
       <header>
