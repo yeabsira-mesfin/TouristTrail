@@ -1,1 +1,1 @@
-Places to visit which are ordered based on your location.
+Places to visit that are ordered based on your location.
